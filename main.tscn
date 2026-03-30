@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxw28y8s38p1r"]
+
+[ext_resource type="PackedScene" uid="uid://b00g4w51c1s4e" path="res://player.tscn" id="1_z001"]
+[ext_resource type="TileSet" uid="uid://cyc7t2y7y" path="res://my_tileset.tres" id="2_ts01"]
+[ext_resource type="PackedScene" uid="uid://b1m2x3y405" path="res://Farm.tscn" id="3_farm"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_script"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = ExtResource("2_ts01")
+
+[node name="Farm" parent="." instance=ExtResource("3_farm")]
+z_index = 5
+
+[node name="Player" parent="." instance=ExtResource("1_z001")]
+position = Vector2(576, 324)

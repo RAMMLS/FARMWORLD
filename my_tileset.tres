@@ -1,0 +1,45 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://cyc7t2y7y"]
+
+[ext_resource type="Texture2D" uid="uid://cxn42qkq3" path="res://tileset.png" id="1_tex"]
+[ext_resource type="Texture2D" uid="uid://d1seed" path="res://Images/seed_gen.png" id="2_seed"]
+[ext_resource type="Texture2D" uid="uid://d2mid" path="res://Images/plant_mid_gen.png" id="3_mid"]
+[ext_resource type="Texture2D" uid="uid://d3full" path="res://Images/plant_full_gen.png" id="4_full"]
+[ext_resource type="Texture2D" uid="uid://d4water" path="res://Images/watered_soil_gen.png" id="5_water"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
+texture = ExtResource("1_tex")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_seed"]
+texture = ExtResource("2_seed")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mid"]
+texture = ExtResource("3_mid")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_full"]
+texture = ExtResource("4_full")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_water"]
+texture = ExtResource("5_water")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1")
+sources/1 = SubResource("TileSetAtlasSource_seed")
+sources/2 = SubResource("TileSetAtlasSource_mid")
+sources/3 = SubResource("TileSetAtlasSource_full")
+sources/4 = SubResource("TileSetAtlasSource_water")

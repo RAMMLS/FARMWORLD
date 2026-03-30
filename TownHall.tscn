@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b2townhall"]
+
+[ext_resource type="Texture2D" uid="uid://d5interior" path="res://Images/interior_gen.png" id="1_bg"]
+[ext_resource type="PackedScene" uid="uid://b00g4w51c1s4e" path="res://player.tscn" id="2_player"]
+[ext_resource type="Script" path="res://townhall.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_exit"]
+size = Vector2(80, 40)
+
+[node name="TownHall" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(400, 300)
+texture = ExtResource("1_bg")
+
+[node name="ExitArea" type="Area2D" parent="Background"]
+position = Vector2(0, 280)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/ExitArea"]
+shape = SubResource("RectangleShape2D_exit")
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+position = Vector2(400, 500)

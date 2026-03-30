@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1m2x3y405"]
+
+[ext_resource type="Texture2D" uid="uid://d2h3o4u5" path="res://Images/house_gen.png" id="1_house"]
+[ext_resource type="Texture2D" uid="uid://d3t4r5e6" path="res://Images/tree_gen.png" id="2_tree"]
+[ext_resource type="Script" path="res://farm.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_door"]
+size = Vector2(40, 60)
+
+[node name="Farm" type="Node2D"]
+script = ExtResource("1_script")
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(500, 200)
+texture = ExtResource("1_house")
+
+[node name="EntranceArea" type="Area2D" parent="House"]
+position = Vector2(0, 70)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="House/EntranceArea"]
+shape = SubResource("RectangleShape2D_door")
+
+[node name="Tree1" type="Sprite2D" parent="."]
+position = Vector2(200, 300)
+texture = ExtResource("2_tree")
+
+[node name="Tree2" type="Sprite2D" parent="."]
+position = Vector2(800, 350)
+texture = ExtResource("2_tree")
+

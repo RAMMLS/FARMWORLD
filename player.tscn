@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://b00g4w51c1s4e"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_x001"]
+[ext_resource type="Texture2D" uid="uid://d1a2b3c4" path="res://Images/player_gen.png" id="2_player"]
+[ext_resource type="Texture2D" uid="uid://d5e6f7g8" path="res://Images/ui_gen.png" id="3_ui"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y001"]
+size = Vector2(32, 60)
+
+[sub_resource type="World2D" id="World2D_minimap"]
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 10
+script = ExtResource("1_x001")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InventoryUI" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(220, 50)
+texture = ExtResource("3_ui")
+
+[node name="MinimapContainer" type="SubViewportContainer" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 220.0
+grow_horizontal = 0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/MinimapContainer"]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(200, 200)
+render_target_update_mode = 4
+world_2d = SubResource("World2D_minimap")
+
+[node name="MinimapCamera" type="Camera2D" parent="CanvasLayer/MinimapContainer/SubViewport"]
+zoom = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("2_player")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_y001")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
